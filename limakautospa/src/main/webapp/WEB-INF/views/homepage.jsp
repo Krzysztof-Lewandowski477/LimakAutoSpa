@@ -67,7 +67,7 @@
     <!-- Theme Styles -->
     <link href="./public_html/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="./public_html/css/global/global.css" rel="stylesheet" type="text/css"/>
-    <link href="./public_htmlcss/style2.css" rel="stylesheet" type="text/css"/ !important;>
+    <link href="./public_html/css/style2.css" rel="stylesheet" type="text/css"  /!important;>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="./public_html/img/favicon.icon" type="image/x-icon">
@@ -75,9 +75,10 @@
 
 </head>
 <body>
-<header class="page-header">
-    <%@ include file="header.jsp" %>
+<header>
+    <%@include file="header.jsp" %>
 </header>
+
 <!--========== SWIPER SLIDER ==========-->
 <div class="s-swiper js__swiper-one-item">
     <!-- Swiper Wrapper -->
@@ -92,7 +93,7 @@
                 </a>
             </div>
         </div>
-        <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('./public_html/vimg/1920x1080/01.jpg');">
+        <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('./public_html/img/1920x1080/01.jpg');">
             <div class="container g-text-center--xs g-ver-center--xs">
                 <div class="g-margin-b-30--xs">
                     <div class="g-margin-b-30--xs">
