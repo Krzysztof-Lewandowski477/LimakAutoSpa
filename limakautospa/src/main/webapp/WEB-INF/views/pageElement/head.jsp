@@ -57,22 +57,22 @@
 
         <!-- Vendor Styles -->
 
-        <link href="./public_html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/css/animate.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/themify/themify.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- Theme Styles -->
-        <link href="./public_html/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/css/global/global.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/css/style2.css" rel="stylesheet" type="text/css"/ !important;>
+        <link href="${pageContext.request.contextPath}/./public_html/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/css/global/global.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/css/style2.css" rel="stylesheet" type="text/css"/ !important;>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="./public_html/img/favicon.ico" type="image/x-icon">
-        <link rel="apple-touch-icon" href="./public_html/img/apple-touch-icon.png">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/./public_html/img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/./public_html/img/apple-touch-icon.png">
 
     </head>
 </head>
