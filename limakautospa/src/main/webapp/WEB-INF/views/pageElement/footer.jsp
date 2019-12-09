@@ -57,22 +57,22 @@
 
         <!-- Vendor Styles -->
 
-        <link href="./public_html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/css/animate.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html//vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- Theme Styles -->
-        <link href="./public_html/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/css/global/global.css" rel="stylesheet" type="text/css"/>
-        <link href="./public_html/css/style2.css" rel="stylesheet" type="text/css"/ !important;>
+        <link href="${pageContext.request.contextPath}/./public_html/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/css/global/global.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/css/style2.css" rel="stylesheet" type="text/css"/ !important;>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="./public_html/img/favicon.ico" type="image/x-icon">
-        <link rel="apple-touch-icon" href="./public_html/img/apple-touch-icon.png">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/./public_html/img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/./public_html/img/apple-touch-icon.png">
 
     </head>
 </head>
@@ -87,10 +87,10 @@
                     <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
                         <li><a class="g-font-size-15--xs g-color--white-opacity" href="index.html">Home</a></li>
                         <li><a class="g-font-size-15--xs g-color--white-opacity" href="about.html">O nas</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="services.html">Usługi</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="contacts.html">kontakt</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="index_portfolio.html">Realizacje</a></li>
-                        <li> <a class="g-font-size-15--xs g-color--white-opacity" href="index_lawyer.html">RODO</a></li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="/services">Usługi</a></li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="/contacts">kontakt</a></li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="/project">Realizacje</a></li>
+                        <li> <a class="g-font-size-15--xs g-color--white-opacity" href="/rodo">RODO</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
@@ -121,7 +121,7 @@
         <div class="row">
             <div class="col-xs-6">
                 <a href="index.html">
-                    <img class="g-width-100--xs g-height-auto--xs" src="./public_html/img/logo.png" alt="Megakit Logo">
+                    <img class="g-width-100--xs g-height-auto--xs" src="${pageContext.request.contextPath}/./public_html/img/logo.png" alt="Megakit Logo">
                 </a>
             </div>
             <div class="col-xs-6 g-text-right--xs">
@@ -131,38 +131,5 @@
     </div>
     <!-- End Copyright -->
 </footer>
-<!--========== END FOOTER ==========-->
-
-<!-- Back To Top -->
-<a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
-
-<!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
-<!-- Vendor -->
-<script type="text/javascript" src="./public_html/vendor/jquery.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/jquery.migrate.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/jquery.smooth-scroll.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/jquery.back-to-top.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/scrollbar/jquery.scrollbar.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/swiper/swiper.jquery.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/waypoint.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/counterup.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/jquery.parallax.min.js"></script>
-<script type="text/javascript" src="./public_html/vendor/jquery.wow.min.js"></script>
-
-<!-- General Components and Settings -->
-<script type="text/javascript" src="./public_html/js/global.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/header-sticky.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/scrollbar.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/magnific-popup.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/swiper.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/counter.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/portfolio-3-col.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/parallax.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/google-map.min.js"></script>
-<script type="text/javascript" src="./public_html/js/components/wow.min.js"></script>
-<!--========== END JAVASCRIPTS ==========-->
 </body>
 </html>
