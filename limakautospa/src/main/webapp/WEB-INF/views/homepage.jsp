@@ -76,7 +76,7 @@
 </head>
 <body>
 <header>
-    <%@include file="header.jsp" %>
+    <%@include file="pageElement/header.jsp" %>
 </header>
 
 <!--========== SWIPER SLIDER ==========-->
@@ -425,7 +425,7 @@
 <!--========== END PAGE CONTENT ==========-->
 
 <footer>
-    <%@include file="footer.jsp" %>
+    <%@include file="pageElement/footer.jsp" %>
 </footer>
 </body>
 </html>
