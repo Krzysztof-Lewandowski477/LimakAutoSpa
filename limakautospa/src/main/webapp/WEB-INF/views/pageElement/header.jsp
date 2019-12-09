@@ -71,7 +71,7 @@
         <link href="${pageContext.request.contextPath}/./public_html/css/style2.css" rel="stylesheet" type="text/css"/ important !important;>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="${pageContext.request.contextPath}/./public_html/img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/./public_html/img/favicon.icon" type="image/x-icon">
         <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/./public_html/img/apple-touch-icon.png">
 
     </head>
