@@ -61,7 +61,7 @@
         <link href="${pageContext.request.contextPath}/./public_html/css/animate.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/./public_html/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/./public_html/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath}/./public_html//vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/./public_html/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/./public_html/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/./public_html/vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
 
@@ -85,7 +85,7 @@
                 <div class="s-header__navbar-row-col">
                     <!-- Logo -->
                     <div class="s-header__logo">
-                        <a href="${pageContext.request.contextPath}/./public_html/index.html" class="s-header__logo-link">
+                        <a href="/index" class="s-header__logo-link">
                             <img class="s-header__logo-img s-header__logo-img-default" src="${pageContext.request.contextPath}/./public_html/img/logo-white.png" alt="LimakAutoSpa">
 
                         </a>
@@ -115,14 +115,14 @@
 
                 <!-- Menu List -->
                 <ul class="list-unstyled s-header__nav-menu">
-                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="./public_html/about.html">O nas</a></li>
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/about">O nas</a></li>
 
-                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="./public_html/services.html">Usługi</a></li>
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/services">Usługi</a></li>
 
-                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="faq.html">FAQ</a></li>
-                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="contacts.html">Kontakt</a></li>
-                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="index_portfolio.html">Projekty</a></li>
-                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="index_lawyer.html">RODO</a></li>
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/faq">FAQ</a></li>
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/contacts">Kontakt</a></li>
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/project">Projekty</a></li>
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/rodo">RODO</a></li>
                 </ul>
                 <!-- End Menu List -->
             </div>
