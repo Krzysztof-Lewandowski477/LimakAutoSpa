@@ -37,31 +37,31 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        super.configure ( web );
+        web.ignoring ().antMatchers ( "/public_html/**" );
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//       http.authorizeRequests ()
-//               .antMatchers ( "/" ).permitAll ()
-//               .antMatchers ( "/register" ).permitAll ()
-//               .antMatchers ( "/login" ).permitAll ()
-//               .antMatchers ( "/logout" ).authenticated ()
-//               .antMatchers ( "/user","/user/**" ).hasRole ( "USER" )
-//               .antMatchers ( "/admin", "/admin/**" ).hasRole ( "ADMIN" )
-//               .anyRequest ().authenticated ()
-//               .and ()
-//            .formLogin ()
-//               .loginPage ( "/login" )
-//               .usernameParameter ( "username" )
-//               .passwordParameter ( "password" )
-//               .defaultSuccessUrl ( "/" )
-//               .and ()
-//            .logout ()
-//               .logoutUrl ( "/logout" )
-//               .logoutSuccessUrl ( "/" )
-//               .and ()
-//               .csrf ();
-//
-//    }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+       http.authorizeRequests ()
+               .antMatchers ( "/" ).permitAll ()
+               .antMatchers ( "/register" ).permitAll ()
+               .antMatchers ( "/login" ).permitAll ()
+               .antMatchers ( "/logout" ).authenticated ()
+               .antMatchers ( "/user","/user/**" ).hasRole ( "USER" )
+               .antMatchers ( "/admin", "/admin/**" ).hasRole ( "ADMIN" )
+               .anyRequest ().authenticated ()
+               .and ()
+            .formLogin ()
+               .loginPage ( "/login" )
+               .usernameParameter ( "username" )
+               .passwordParameter ( "password" )
+               .defaultSuccessUrl ( "/" )
+               .and ()
+            .logout ()
+               .logoutUrl ( "/logout" )
+               .logoutSuccessUrl ( "/" )
+               .and ()
+               .csrf ();
+
+    }
 }
