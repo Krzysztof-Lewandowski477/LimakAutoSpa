@@ -23,20 +23,16 @@ import java.util.List;
 public class ImageController {
 
 
-    private final ImageService imageService;
-    private final UserRepository userRepository;
     private final ImageRepository imageRepository;
     private final ImageImpl images;
 
-    public ImageController(ImageService imageService, UserRepository userRepository, ImageRepository imageRepository, ImageImpl images) {
-        this.imageService = imageService;
-        this.userRepository = userRepository;
+    public ImageController(ImageRepository imageRepository, ImageImpl images) {
         this.imageRepository = imageRepository;
         this.images = images;
     }
 
     @GetMapping("/fileupload")
-    public String fileUPLOS(){
+    public String fileUpload() {
         return "addimage";
 
     }
@@ -58,9 +54,9 @@ public class ImageController {
     public ResponseEntity<Resource> getImage(@PathVariable Long id) {
         Image image = imageRepository.getOne ( id );
         return ResponseEntity.ok ()
-                .contentType ( MediaType.valueOf(image.getContextType ())).
-                header ( "Content-Disposition", String.format("filename=%s", image.getName ()) )
-                .body ( new ByteArrayResource ( image.getImage() ) );
+                .contentType ( MediaType.valueOf ( image.getContextType () ) ).
+                        header ( "Content-Disposition", String.format ( "filename=%s", image.getName () ) )
+                .body ( new ByteArrayResource ( image.getImage () ) );
     }
 
     @GetMapping("/project")
@@ -73,8 +69,7 @@ public class ImageController {
     }
 
 
-
-        @GetMapping("/getDetail")
+    @GetMapping("/getDetail")
     public String getAllImage(Long id, Model model) throws UnsupportedEncodingException {
         List<Image> list = imageRepository.findAll ();
 
@@ -85,21 +80,49 @@ public class ImageController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteImage(Model model,@PathVariable Long id){
+    public String deleteImage(Model model, @PathVariable Long id) {
 
         model.addAttribute ( "imageDel", imageRepository.findById ( id ) );
 
 
-            return "deleteImage";
+        return "deleteImage";
     }
 
     @PostMapping("/delete/{id}")
-    public String deletePost( @PathVariable Long id){
+    public String deletePost(@PathVariable Long id) {
 
-        imageRepository.deleteById (id);
+        imageRepository.deleteById ( id );
+        return "redirect:/project";
+    }
+
+
+    @GetMapping("/imageupdate/{id}")
+    public String imageEdit(@PathVariable Long id, Model model) {
+
+        model.addAttribute ( "image", imageRepository.findById ( id ) );
+        return "updateimage";
+
+    }
+
+    @PostMapping("/imageupdate/{id}")
+    public String imageEditPost(@PathVariable Long id, @RequestParam("file") MultipartFile file ,@RequestParam("name") String name, Model model) {
+        try {
+            model.addAttribute ( "image", imageRepository.findById ( id ) );
+            Image image = new Image();
+            image.setContextType (file.getContentType());
+            image.setName (file.getOriginalFilename());
+            image.setImage (file.getBytes());
+            images.saveImageFile ( file );
+//            imageRepository.save ( image );
+
+        } catch (Exception e) {
+
+            return "error";
+        }
         return "redirect:/project";
     }
 }
+
 
 
 //    @GetMapping("/add")
@@ -136,7 +159,7 @@ public class ImageController {
 //            model.addAttribute("name", imagesObj.getName ());
 //            byte[] encode = java.util.Base64.getEncoder().encode(imagesObj.getImage());
 //            model.addAttribute("image", new String(encode, "UTF-8"));
-//
+
 //            return "imagedetails";
 //        } catch (Exception e) {
 //
