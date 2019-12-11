@@ -1,6 +1,8 @@
 package pl.limakautospa.limakautospa.controllers;
 
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -13,10 +15,11 @@ import pl.limakautospa.limakautospa.domain.repositories.UserRepository;
 import pl.limakautospa.limakautospa.services.ImageService;
 import pl.limakautospa.limakautospa.services.impl.ImageImpl;
 
-import java.security.Principal;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 @Controller
-@RequestMapping("/proj")
+@RequestMapping
 public class ImageController {
 
 
@@ -31,6 +34,72 @@ public class ImageController {
         this.imageRepository = imageRepository;
         this.images = images;
     }
+
+    @GetMapping("/fileupload")
+    public String fileUPLOS(){
+        return "addimage";
+
+    }
+
+    @PostMapping("/fileupload")
+    public String fileUpload(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
+        try {
+
+            images.saveImageFile ( file );
+
+        } catch (Exception e) {
+
+            return "error";
+        }
+        return "redirect:/project";
+    }
+
+    @GetMapping("/image/{id}")
+    public ResponseEntity<Resource> getImage(@PathVariable Long id) {
+        Image image = imageRepository.getOne ( id );
+        return ResponseEntity.ok ()
+                .contentType ( MediaType.valueOf(image.getContextType ())).
+                header ( "Content-Disposition", String.format("filename=%s", image.getName ()) )
+                .body ( new ByteArrayResource ( image.getImage() ) );
+    }
+
+    @GetMapping("/project")
+    public String getAllImageProj(Long id, Model model) throws UnsupportedEncodingException {
+        List<Image> list = imageRepository.findAll ();
+
+        model.addAttribute ( "images", list );
+
+        return "project";
+    }
+
+
+
+        @GetMapping("/getDetail")
+    public String getAllImage(Long id, Model model) throws UnsupportedEncodingException {
+        List<Image> list = imageRepository.findAll ();
+
+        model.addAttribute ( "images", list );
+
+        return "imagedetails";
+
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteImage(Model model,@PathVariable Long id){
+
+        model.addAttribute ( "imageDel", imageRepository.findById ( id ) );
+
+
+            return "deleteImage";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deletePost( @PathVariable Long id){
+
+        imageRepository.deleteById (id);
+        return "redirect:/project";
+    }
+}
 
 
 //    @GetMapping("/add")
@@ -57,61 +126,21 @@ public class ImageController {
 //        return "redirect:/project";
 //    }
 
-    @GetMapping("/fileupload")
-    public String fileUPLOS(){
-        return "addimage";
-
-    }
-
-    @PostMapping("/fileupload")
-    public String fileUpload(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
-        try {
-
-            byte[] image = file.getBytes();
-           Image model = new Image();
-
-           model.setImage (image);
-           model.setName ( name );
-            int saveImage = images.saveImage(model);
-            if (saveImage == 1) {
-                return "redirect:/project";
-            } else {
-                return "error";
-            }
-        } catch (Exception e) {
-
-            return "error";
-        }
-    }
-
-    @GetMapping("/getDetail/{id}")
-    public String getDetails(@PathVariable String id, Model model) {
-        try {
-
-            Image imagesObj = images.getImages(Long.parseLong(id));
-            model.addAttribute("id", imagesObj.getId());
-            model.addAttribute("name", imagesObj.getName ());
-            byte[] encode = java.util.Base64.getEncoder().encode(imagesObj.getImage());
-            model.addAttribute("image", new String(encode, "UTF-8"));
-            return "imagedetails";
-        } catch (Exception e) {
-
-            model.addAttribute("message", "Error in getting image");
-            return "redirect:/";
-        }
-    }
-
-
-
-    @GetMapping
-    public ResponseEntity<Resource> getAllImage(Principal principal){
-
-
-        return null;
-
-    }
-
-
-    }
-
-
+//    @GetMapping("/getDetail/{id}")
+//    public String getDetails(@PathVariable String id, Model model) {
+//        try {
+//
+////            Image imagesObj = images.getImages (Long.parseLong(id));
+//            Image imagesObj = imageRepository.getOne (Long.parseLong(id));
+//            model.addAttribute("id", imagesObj.getId());
+//            model.addAttribute("name", imagesObj.getName ());
+//            byte[] encode = java.util.Base64.getEncoder().encode(imagesObj.getImage());
+//            model.addAttribute("image", new String(encode, "UTF-8"));
+//
+//            return "imagedetails";
+//        } catch (Exception e) {
+//
+//            model.addAttribute("message", "Error in getting image");
+//            return "redirect:/";
+//        }
+//    }
