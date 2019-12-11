@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class HomePageController {
 
-    @GetMapping
+    @GetMapping("/")
     public String getHomePage(){
 
         return "index";
@@ -31,10 +31,10 @@ public class HomePageController {
         return "services";
     }
 
-    @GetMapping("/project")
-    public String projectGet(){
-        return "project";
-    }
+//    @GetMapping("/project")
+//    public String projectGet(){
+//        return "project";
+//    }
 
     @GetMapping("/contacts")
     public String contactsGet(){
