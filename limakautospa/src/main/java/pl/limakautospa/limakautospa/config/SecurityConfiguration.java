@@ -37,13 +37,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring ().antMatchers ( "/public_html/**" );
+        web.ignoring ().antMatchers ( "/public_html/**" ).antMatchers ( "/webjars/**" );
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
        http.authorizeRequests ()
-               .antMatchers ( "/" ).permitAll ()
+               .antMatchers ( "/image/**","/" ,"/project","/contacts","/about","/services","/faq","/rodo","/index").permitAll ()
                .antMatchers ( "/register" ).permitAll ()
                .antMatchers ( "/login" ).permitAll ()
                .antMatchers ( "/logout" ).authenticated ()
@@ -55,11 +55,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                .loginPage ( "/login" )
                .usernameParameter ( "username" )
                .passwordParameter ( "password" )
-               .defaultSuccessUrl ( "/" )
+               .defaultSuccessUrl ( "/index" )
                .and ()
             .logout ()
                .logoutUrl ( "/logout" )
-               .logoutSuccessUrl ( "/" )
+               .logoutSuccessUrl ( "/index" )
                .and ()
                .csrf ();
 
