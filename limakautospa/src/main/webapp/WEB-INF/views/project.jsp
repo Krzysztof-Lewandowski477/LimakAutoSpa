@@ -1,5 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@page contentType="text/html" pageEncoding="UTF-8" %>--%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <!-- Begin Head -->
@@ -67,57 +69,46 @@
                 </ul>
             </div>
         </div>
-        <!-- Item  zdjęcie do dodania -->
-        <div class="s-portfolio__item cbp-item graphic s-portfolio">
-            <div class="s-portfolio__img-effect">
-                <img src="${pageContext.request.contextPath}/./public_html/img/970x647/14.jpg" alt="LimakAutoSpa">
-            </div>
-            <div class="s-portfolio__caption-hover--cc">
-                <div class="g-margin-b-25--xs">
-                    <h4 class="g-font-size-18--xs g-color--white g-margin-b-5--xs"> samolot Beechcraft model B200 series</h4>
-                    <p class="g-color--white-opacity">Limak Auto Spa</p>
-                </div>
-                <ul class="list-inline g-ul-li-lr-5--xs g-margin-b-0--xs">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/./public_html/img/970x647/14.jpg" class="cbp-lightbox s-icon s-icon--sm s-icon--white-bg g-radius--circle" data-title="LimakAutoSpa">
-                            <i class="ti-fullscreen"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/limakautospa/" class="s-icon s-icon--sm s-icon s-icon--white-bg g-radius--circle">
-                            <i class="ti-link"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- Item zdjęcie do dodania
-        <div class="s-portfolio__item cbp-item graphic s-portfolio">
-            <div class="s-portfolio__img-effect">
-                <img src="img/970x647/06.jpg" alt="LimakAutoSpa">
-            </div>
-            <div class="s-portfolio__caption-hover--cc">
-                <div class="g-margin-b-25--xs">
-                    <h4 class="g-font-size-18--xs g-color--white g-margin-b-5--xs">MERCEDES</h4>
-                    <p class="g-color--white-opacity">Limak Auto Spa</p>
-                </div>
-                <ul class="list-inline g-ul-li-lr-5--xs g-margin-b-0--xs">
-                    <li>
-                        <a href="img/970x647/06.jpg" class="cbp-lightbox s-icon s-icon--sm s-icon--white-bg g-radius--circle" data-title="LimakAutoSpa">
-                            <i class="ti-fullscreen"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/limakautospa/" class="s-icon s-icon--sm s-icon s-icon--white-bg g-radius--circle">
-                            <i class="ti-link"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
 
-         Item -->
+        <c:forEach items="${images}" var="image">
+<%--            <sec:authorize access="!isAuthenticated()">--%>
+            <div class="s-portfolio__item cbp-item graphic s-portfolio">
+                <div class="s-portfolio__img-effect">
+                    <c:url var="imageURL" value="/image/${image.id}"/>
+                    <img src="${imageURL}" alt="TEXT"/>
+                </div>
+                <div class="s-portfolio__caption-hover--cc">
+                    <div class="g-margin-b-25--xs">
+                        <h4 class="g-font-size-18--xs g-color--white g-margin-b-5--xs">${image.name}</h4>
+                        <sec:authorize access="hasRole('ADMIN')">
+                        <c:url var="deleteURL" value="/delete/${image.id}"/>
+                        <p class="g-color--white-opacity"><a href="${deleteURL}">delete</a></p>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('ADMIN')">
+                            <c:url var="updateURL" value="/imageupdate/${image.id}"/>
+                            <p class="g-color--white-opacity"><a href="${updateURL}">Edytuj</a></p>
+                        </sec:authorize>
+                    </div>
+                    <ul class="list-inline g-ul-li-lr-5--xs g-margin-b-0--xs">
+                        <li>
+                            <a href="img/970x647/06.jpg"
+                               class="cbp-lightbox s-icon s-icon--sm s-icon--white-bg g-radius--circle"
+                               data-title="LimakAutoSpa">
+                                <i class="ti-fullscreen"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/limakautospa/"
+                               class="s-icon s-icon--sm s-icon s-icon--white-bg g-radius--circle">
+                                <i class="ti-link"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+<%--            </sec:authorize>--%>
+        </c:forEach>
         <!-- Item -->
         <div class="s-portfolio__item cbp-item graphic s-portfolio">
             <div class="s-portfolio__img-effect">
@@ -193,10 +184,6 @@
             </div>
         </div>
         <!--item-->
-
-
-
-
 
         <!-- Item -->
         <div class="s-portfolio__item cbp-item logos graphic">
