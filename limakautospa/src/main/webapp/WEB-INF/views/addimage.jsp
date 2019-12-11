@@ -43,7 +43,7 @@
 <%--        </c:if>--%>
 <%--    </div>--%>
 <%--</form>--%>
-<form action="/proj/fileupload" method="POST" enctype="multipart/form-data">
+<form action="/fileupload" method="POST" enctype="multipart/form-data">
 <table>
     <tr>
         <td>
