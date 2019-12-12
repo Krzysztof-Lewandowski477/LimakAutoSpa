@@ -10,7 +10,7 @@
         <jsp:param name="title" value="${title}"/>
     </jsp:include>
 </head>
-<body class="has-navbar-fixed-top">
+<body class="has-navbar-fixed-top is-black">
 <header>
     <jsp:include page="/WEB-INF/views/fragments/main-menu.jsp"/>
 </header>
@@ -21,18 +21,18 @@
         </h1>
     </div>
 </section>
-<section class="section">
-    <div class="container">
-        <div class="columns">
+<section class="section is-black">
+    <div class="container is-black">
+        <div class="columns is-black">
             <div class="column"></div>
             <div class="column">
-                <form method="post" action="/login">
-                    <div class="field">
+                <form method="post" action="/login" >
+                    <div class="field is-black">
                         <label class="label" for="username"><s:message code="global.username"/></label>
                         <div class="control has-icons-left">
                             <input type="text" id="username" name="username" required
                                    class="input"/>
-                            <span class="icon is-small is-left">
+                            <span class="icon is-small is-left is-black">
                                 <i class="fas fa-user"></i>
                             </span>
                             <p class="help"><s:message code="pages.login.form.help.username"/></p>
@@ -49,9 +49,9 @@
                             <p class="help"><s:message code="pages.login.form.help.password"/></p>
                         </div>
                     </div>
-                    <div class="field">
-                        <div class="control">
-                            <button class="button is-success is-link" type="submit"><s:message code="pages.login.form.submit"/></button>
+                    <div class="field is-black">
+                        <div class="control is-black">
+                            <button  class="button is-black is-success is-link " type="submit is-black"><s:message code="pages.login.form.submit"/></button>
                         </div>
                     </div>
                     <sec:csrfInput/>

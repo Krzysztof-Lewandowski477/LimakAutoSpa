@@ -78,11 +78,11 @@
                     </div>
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-success is-link" type="submit"><s:message code="pages.register.form.submit"/>
+                            <button class="button is-success is-link is-black" type="submit"><s:message code="pages.register.form.submit"/>
                             </button>
                         </div>
                         <div class="control">
-                            <button class="button is-text" type="reset"><s:message code="pages.register.form.reset"/></button>
+                            <button class="button is-text is-black" type="reset"><s:message code="pages.register.form.reset"/></button>
                         </div>
                     </div>
                     <sec:csrfInput/>

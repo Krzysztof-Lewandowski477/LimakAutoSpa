@@ -35,20 +35,21 @@ public class ImageController {
     }
 
     @GetMapping("/fileupload")
-    public String fileUpload() {
+    public String fileUpload( ) {
+
         return "addimage";
 
     }
 
     @PostMapping("/fileupload")
-    public String fileUpload( @RequestParam("name") String name, @RequestParam("file") MultipartFile file,@Valid Image image, BindingResult result) {
+    public String fileUpload( @RequestParam("name") String name, @RequestParam("file") MultipartFile file, @Valid Image image, BindingResult result) {
         try {
 
     if(result.hasErrors ()&&name !=null&&file!=null) {
 
         images.saveImageFile ( file, name );
     }else {
-        return "redirect:fileupload";
+        return "redirect:/fileupload";
     }
 
         } catch (Exception e) {

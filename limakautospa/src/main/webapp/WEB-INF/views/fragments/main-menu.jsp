@@ -8,18 +8,18 @@
     <div class="navbar-brand">
         <div class="navbar-item">
             <c:url var="homeURL" value="/"/>
-            <a class="navbar-item button" href="${homeURL}">
+            <a class="navbar-item button is-black" href="${homeURL}">
                 <spring:message code="pages.menu.links.main"/>
             </a>
         </div>
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu is-black">
         <div class="navbar-start">
             <sec:authorize access="hasRole('USER')">
                 <div class="navbar-item">
 
                     <c:url var="accountURL" value="/user"/>
-                    <a class="navbar-item button" href="${accountURL}">
+                    <a class="navbar-item button is-black" href="${accountURL}">
                         <spring:message code="pages.menu.links.account"/>
                     </a>
 
@@ -33,11 +33,11 @@
                     <sec:authorize access="!isAuthenticated()">
 
                         <c:url var="registerURL" value="/register"/>
-                        <a class="button is-primary" href="${registerURL}">
+                        <a class="button  is-black" href="${registerURL}">
                             <strong><spring:message code="pages.menu.links.register"/></strong>
                         </a>
-                        <c:url var="loginURL" value="//index"/>
-                        <a class="button is-success" href="${loginURL}">
+                        <c:url var="loginURL" value="/"/>
+                        <a class="button is-success is-black" href="${loginURL}">
                             <strong><spring:message code="pages.menu.links.login"/></strong>
                         </a>
 
@@ -46,7 +46,7 @@
 
                         <c:url var="logoutURL" value="/logout"/>
                         <form method="post" action="${logoutURL}">
-                            <button class="button is-link" type="submit"><spring:message code="pages.menu.links.logout"/></button>
+                            <button class="button is-link is-black" type="submit is-black"><spring:message code="pages.menu.links.logout"/></button>
                             <sec:csrfInput/>
                         </form>
 

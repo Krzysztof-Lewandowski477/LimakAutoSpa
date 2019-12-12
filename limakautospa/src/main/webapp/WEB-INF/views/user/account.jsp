@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pizza Start</title>
+    <title>Account</title>
     <%-- Elementy dotyczące treści strony --%>
     <%-- Elementy dotyczące wyświetlania --%>
     <meta name="viewport" content="width=device-width; initial-scale=1.0, maximum-scale=1.0"/>
@@ -29,29 +29,24 @@
                             Więcej
                         </a>
 
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                Link do niczego
-                            </a>
-                            <%-- Tutaj kolejne linki w menu dodatkowym --%>
-                        </div>
+
                     </div>
                 </div>
 
                 <div class="navbar=end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary" href="/register">
+                    <div class="navbar-item is-black">
+                        <div class="buttons is-black">
+                            <a class="button is-primary is-black" href="/register">
                                 <strong>Zarejestruj</strong>
                             </a>
-                            <a class="button is-success" href="/login">
+                            <a class="button is-success is-black" href="/login">
                                 <strong>Zaloguj</strong>
                             </a>
-                            <a class="button is-primary" href="/account">
+                            <a class="button is-black" href="/account">
                                 <strong>Twoje konto</strong>
                             </a>
                             <form method="post" action="/logout">
-                                <button class="button is-link" type="submit">Wyloguj</button>
+                                <button class="button  is-black" type="submit">Wyloguj</button>
                             </form>
                         </div>
                     </div>
