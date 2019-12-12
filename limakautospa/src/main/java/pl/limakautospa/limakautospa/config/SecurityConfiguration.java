@@ -1,5 +1,7 @@
 package pl.limakautospa.limakautospa.config;
 
+import lombok.extern.slf4j.Slf4j;
+import net.bytebuddy.implementation.bind.annotation.Pipe;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,7 +12,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
-
+@Slf4j
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -37,7 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring ().antMatchers ( "/public_html/**" ).antMatchers ( "/webjars/**" );
+        web.ignoring ().antMatchers ( "/public_html/**" ,"/image/**","/FaviconLoader.jsm", "/modules/**" , "favicon.ico","http://localhost:8080/favicon.ico").antMatchers ( "/webjars/**" );
     }
 
     @Override
@@ -52,7 +54,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                .anyRequest ().authenticated ()
                .and ()
             .formLogin ()
-               .loginPage ( "/login" )
+               .loginPage ( "/login")
                .usernameParameter ( "username" )
                .passwordParameter ( "password" )
                .defaultSuccessUrl ( "/index" )
@@ -62,6 +64,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                .logoutSuccessUrl ( "/index" )
                .and ()
                .csrf ();
-
+log.debug ( "logowanie{}", http );
     }
+
 }
