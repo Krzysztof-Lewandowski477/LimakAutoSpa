@@ -1,5 +1,6 @@
 package pl.limakautospa.limakautospa.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
@@ -7,26 +8,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.limakautospa.limakautospa.domain.entities.Image;
 import pl.limakautospa.limakautospa.domain.repositories.ImageRepository;
-import pl.limakautospa.limakautospa.domain.repositories.UserRepository;
-import pl.limakautospa.limakautospa.services.ImageService;
+import pl.limakautospa.limakautospa.dtos.ImageDataDTO;
 import pl.limakautospa.limakautospa.services.impl.ImageImpl;
 
+import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-
+@Slf4j
 @Controller
 @RequestMapping
 public class ImageController {
 
-
+    private  ImageDataDTO imageDataDTO;
     private final ImageRepository imageRepository;
     private final ImageImpl images;
 
-    public ImageController(ImageRepository imageRepository, ImageImpl images) {
+    public ImageController( ImageRepository imageRepository, ImageImpl images) {
+
         this.imageRepository = imageRepository;
         this.images = images;
     }
@@ -38,15 +41,21 @@ public class ImageController {
     }
 
     @PostMapping("/fileupload")
-    public String fileUpload(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
+    public String fileUpload( @RequestParam("name") String name, @RequestParam("file") MultipartFile file,@Valid Image image, BindingResult result) {
         try {
 
-            images.saveImageFile ( file );
+    if(result.hasErrors ()&&name !=null&&file!=null) {
+
+        images.saveImageFile ( file, name );
+    }else {
+        return "redirect:fileupload";
+    }
 
         } catch (Exception e) {
 
-            return "error";
+            return "redirect:/fileupload";
         }
+        log.info("imagedataDTO: {}", image);
         return "redirect:/project";
     }
 
@@ -99,7 +108,7 @@ public class ImageController {
     @GetMapping("/imageupdate/{id}")
     public String imageEdit(@PathVariable Long id, Model model) {
 
-        model.addAttribute ( "image", imageRepository.findById ( id ) );
+        model.addAttribute ( "image", imageRepository.getOne ( id ) );
         return "updateimage";
 
     }
@@ -107,17 +116,16 @@ public class ImageController {
     @PostMapping("/imageupdate/{id}")
     public String imageEditPost(@PathVariable Long id, @RequestParam("file") MultipartFile file ,@RequestParam("name") String name, Model model) {
         try {
-            model.addAttribute ( "image", imageRepository.findById ( id ) );
-            Image image = new Image();
-            image.setContextType (file.getContentType());
-            image.setName (file.getOriginalFilename());
-            image.setImage (file.getBytes());
-            images.saveImageFile ( file );
-//            imageRepository.save ( image );
-
+          Image image = imageRepository.getOne ( id );
+            image.setContextType(file.getContentType());
+            image.setName(file.getOriginalFilename());
+            image.setImage(file.getBytes());
+            image.setDescription ( name );
+            imageRepository.save ( image );
+        log.debug ( "logging" );
         } catch (Exception e) {
 
-            return "error";
+            return "redirect:/imageupdate/{id}";
         }
         return "redirect:/project";
     }
