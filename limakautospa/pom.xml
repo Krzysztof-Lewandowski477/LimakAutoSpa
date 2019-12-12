@@ -11,7 +11,7 @@
 	<groupId>pl.limakautospa</groupId>
 	<artifactId>limakautospa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+<!--	<packaging>war</packaging>-->
 	<name>limakautospa</name>
 	<description>Strona.Limak.Auto.Spa</description>
 
