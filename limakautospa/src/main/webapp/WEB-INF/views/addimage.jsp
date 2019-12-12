@@ -46,18 +46,19 @@
 <form action="/fileupload" method="POST" enctype="multipart/form-data">
 <table>
     <tr>
-        <td>
-            <input type="text" name="name" >
+        <td>Opis zdjęcia
+            <input type="text" name="name" > <a> Nie wybrano opisu.</a>
+
         </td>
     </tr>
     <tr>
-        <td>
+        <td>Wybierz zdjęcie
             <input type="file" name="file" >
         </td>
     </tr>
     <tr>
         <td>
-            <input type="submit">
+            <input type="submit" value="Dodaj zdjęcie">
         </td>
     </tr>
     <sec:csrfInput/>

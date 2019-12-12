@@ -1,3 +1,5 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -71,8 +73,8 @@
         <link href="${pageContext.request.contextPath}/./public_html/css/style2.css" rel="stylesheet" type="text/css"/ important !important;>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="${pageContext.request.contextPath}/./public_html/img/favicon.icon" type="image/x-icon">
-        <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/./public_html/img/apple-touch-icon.png">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/./public_html/img/favicon.ico" type="image/x-icon">
+<%--        <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/./public_html/img/apple-touch-icon.png">--%>
 
     </head>
 </head>
@@ -123,6 +125,23 @@
                     <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/contacts">Kontakt</a></li>
                     <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/project">Projekty</a></li>
                     <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/rodo">RODO</a></li>
+
+                    <sec:authorize access="!isAuthenticated()">
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/login">Logowanie</a></li>
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/register">Rejestracja</a></li>
+
+                    </sec:authorize>
+<sec:authorize access="hasRole('ADMIN')">
+                    <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/fileupload">Dodaj Zdj</a></li>
+</sec:authorize>
+                    <c:url var="logoutURL" value="/logout"/>
+                    <form method="post" action="${logoutURL}">
+                        <sec:authorize access="!isAnonymous()">
+                        <button class="button is-link" type="submit"></button>
+                        <sec:csrfInput/>
+                    </form>
+                    </sec:authorize>
+
                 </ul>
                 <!-- End Menu List -->
             </div>
@@ -150,6 +169,9 @@
                     <span class="g-display-none--xs g-display-inline-block--sm">Instagram</span>
                 </a>
             </li>
+
+
+
         </ul>
         <!-- End Action -->
     </div>

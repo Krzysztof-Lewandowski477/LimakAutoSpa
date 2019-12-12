@@ -1,77 +1,28 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register yout account</title>
-    <%-- Elementy dotyczące treści strony --%>
-    <%-- Elementy dotyczące wyświetlania --%>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0, maximum-scale=1.0"/>
-
-    <%-- Linki do szablonów css trafią tutaj --%>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-
-    <%-- Linki do skryptów js trafią tutaj --%>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <s:message code="pages.register.head.title" var="title"/>
+    <jsp:include page="/WEB-INF/views/fragments/head.jsp">
+        <jsp:param name="title" value="${title}"/>
+    </jsp:include>
 </head>
 <body class="has-navbar-fixed-top">
 <header>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="/">
-                        Home
-                    </a>
-                    <%-- Tutaj pozostałe linki, które chcemy mieć widoczne --%>
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            More...
-                        </a>
-
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                Some link
-                            </a>
-                            <%-- Tutaj kolejne linki w menu dodatkowym --%>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="navbar=end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary" href="/register">
-                                <strong>Register</strong>
-                            </a>
-                            <a class="button is-success" href="/login">
-                                <strong>Login</strong>
-                            </a>
-                            <a class="button is-primary" href="/account">
-                                <strong>Account</strong>
-                            </a>
-                            <form method="post" action="/logout">
-                                <button class="button is-link" type="submit">Wyloguj</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="/WEB-INF/views/fragments/main-menu.jsp"/>
 </header>
-<section class="hero is-bold is-medium">
+<section class="section">
     <div class="container">
-        <div class="hero-body">
-            <h1 class="title">
-                Registration
-            </h1>
-            <h2 class="subtitle">
-                Register your account to make promises right now!
-            </h2>
-        </div>
+        <h1 class="title">
+            <s:message code="pages.register.form.title.main"/>
+        </h1>
+        <h2 class="subtitle">
+            <s:message code="pages.register.form.title.sub"/>
+        </h2>
     </div>
 </section>
 <section class="section">
@@ -81,54 +32,60 @@
             <div class="column">
                 <form:form method="post" modelAttribute="registrationData">
                     <div class="field">
-                        <form:label path="username" cssClass="label">Username</form:label>
+                        <form:label path="username" cssClass="label"><s:message code="global.username"/></form:label>
                         <div class="control has-icons-left">
-                            <form:input path="username" cssClass="input" required="true"/>
+                            <s:message code="pages.register.form.helps.username" var="usernamePlaceholder"/>
+                            <form:input path="username" cssClass="input" required="true" placeholder="${usernamePlaceholder}"/>
                             <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
-                            <p class="help">Set your username</p>
+                            <form:errors path="username" element="p" cssClass="help is-danger"/>
                         </div>
                     </div>
                     <div class="field">
-                        <form:label path="email" cssClass="label">Email</form:label>
+                        <form:label path="email" cssClass="label"><s:message code="global.email"/></form:label>
                         <div class="control has-icons-left">
-                            <form:input path="email" cssClass="input" required="true"/>
+                            <s:message code="pages.register.form.helps.email" var="emailPlaceholder"/>
+                            <form:input path="email" cssClass="input" required="true" placeholder="${emailPlaceholder}"/>
                             <span class="icon is-small is-left"><i
                                     class="fas fa-envelope"></i></span>
-                            <p class="help">Set your email</p>
+                            <form:errors path="email" element="p" cssClass="help is-danger"/>
                         </div>
                     </div>
                     <div class="field">
-                        <form:label path="password" cssClass="label">Password</form:label>
+                        <form:label path="password" cssClass="label"><s:message code="global.password"/></form:label>
                         <div class="control has-icons-left">
-                            <form:password path="password" cssClass="input" required="true"/>
+                            <s:message code="pages.register.form.helps.password" var="passwordPlaceholder"/>
+                            <form:password path="password" cssClass="input" required="true" placeholder="${passwordPlaceholder}"/>
                             <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            <p class="help">Set your password</p>
+                            <form:errors path="password" element="p" cssClass="help is-danger"/>
                         </div>
                     </div>
                     <div class="field">
-                        <form:label path="rePassword" cssClass="label">Retype Password</form:label>
+                        <form:label path="rePassword" cssClass="label"><s:message code="global.re-password"/></form:label>
                         <div class="control has-icons-left">
-                            <form:password path="rePassword" cssClass="input" required="true"/>
+                            <s:message code="pages.register.form.helps.re-password" var="rePasswordPlaceholder"/>
+                            <form:password path="rePassword" cssClass="input" required="true" placeholder="${rePasswordPlaceholder}"/>
                             <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            <p class="help">Set your password again</p>
+                            <p class="help is-dange"></p>
+                            <form:errors path="rePassword" element="p" cssClass="help is-danger"/>
                         </div>
                     </div>
                     <div class="field">
                         <form:label path="termsAcceptance"
                                     cssClass="checkbox">
                             <form:checkbox path="termsAcceptance"
-                                           required="true"/> Accept terms</form:label>
+                                           required="true"/> <s:message code="pages.register.form.helps.terms"/></form:label>
+                        <form:errors path="termsAcceptance" element="p" cssClass="help is-danger"/>
                     </div>
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-success is-link" type="submit">Register
+                            <button class="button is-success is-link" type="submit"><s:message code="pages.register.form.submit"/>
                             </button>
                         </div>
                         <div class="control">
-                            <button class="button is-text" type="reset">Reset</button>
+                            <button class="button is-text" type="reset"><s:message code="pages.register.form.reset"/></button>
                         </div>
                     </div>
-                    <form:errors path="*"/>
+                    <sec:csrfInput/>
                 </form:form>
             </div>
             <div class="column">
@@ -137,11 +94,7 @@
     </div>
 </section>
 <footer class="footer">
-    <div class="container">
-        <div class="content has-text-centered">
-            <p><strong>Promises</strong> by HonestIT Consulting&copy; All right reserved</p>
-        </div>
-    </div>
+    <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </footer>
 </body>
 </html>

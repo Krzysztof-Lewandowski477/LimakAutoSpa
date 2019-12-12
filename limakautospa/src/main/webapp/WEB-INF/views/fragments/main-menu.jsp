@@ -36,9 +36,9 @@
                         <a class="button is-primary" href="${registerURL}">
                             <strong><spring:message code="pages.menu.links.register"/></strong>
                         </a>
-                        <c:url var="loginURL" value="/login"/>
+                        <c:url var="loginURL" value="//index"/>
                         <a class="button is-success" href="${loginURL}">
-<%--                            <strong><spring:message code="pages.menu.links.login"/></strong>--%>
+                            <strong><spring:message code="pages.menu.links.login"/></strong>
                         </a>
 
                     </sec:authorize>

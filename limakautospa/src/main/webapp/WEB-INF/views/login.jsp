@@ -26,7 +26,7 @@
         <div class="columns">
             <div class="column"></div>
             <div class="column">
-                <form method="post" action="${pageContext.request.contextPath}/login">
+                <form method="post" action="/login">
                     <div class="field">
                         <label class="label" for="username"><s:message code="global.username"/></label>
                         <div class="control has-icons-left">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="field">
                         <div class="control">
-                            <button class="button is-success is-link" type="submit" href="/index"><s:message code="pages.login.form.submit"/></button>
+                            <button class="button is-success is-link" type="submit"><s:message code="pages.login.form.submit"/></button>
                         </div>
                     </div>
                     <sec:csrfInput/>

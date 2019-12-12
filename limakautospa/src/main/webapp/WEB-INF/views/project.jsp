@@ -80,7 +80,7 @@
                 </div>
                 <div class="s-portfolio__caption-hover--cc">
                     <div class="g-margin-b-25--xs">
-                        <h4 class="g-font-size-18--xs g-color--white g-margin-b-5--xs">${image.name}</h4>
+                        <h4 class="g-font-size-18--xs g-color--white g-margin-b-5--xs">${image.description}</h4>
                         <sec:authorize access="hasRole('ADMIN')">
                         <c:url var="deleteURL" value="/delete/${image.id}"/>
                         <p class="g-color--white-opacity"><a href="${deleteURL}">delete</a></p>

@@ -11,12 +11,19 @@
     <%@include file="pageElement/header.jsp" %>
 </header>
 <!--========== PROMO BLOCK ==========-->
-<section class="s-video-v2__bg" data-vidbg-bg="mp4: include/media/mp4_video.mp4, webm: include/media/webm_video.webm, poster: include/media/fallback.jpg" data-vidbg-options="loop: true, muted: true, overlay: false">
+<section class="s-video-v2__bg" data-vidbg-bg="mp4: /public_html/include/media/mp4_video.mp4, webm: /public_html/include/media/webm_video.webm, poster: include/media/fallback.jpg" data-vidbg-options="loop: true, muted: true, overlay: false" style="z-index:1;">
     <div class="container g-position--overlay g-text-center--xs">
         <div class="g-padding-y-50--xs g-margin-t-100--xs g-margin-b-100--xs g-margin-b-250--md">
             <h1 class="g-font-size-36--xs g-font-size-50--sm g-font-size-60--md g-color--white"><b></br>Klauzula informacyjna RODO </b></h1>
             <h2 class="g-font-size-36--xs g-font-size-50--sm g-font-size-60--md g-color--white"><b>w zakresie przetwarzania danych osobowych</b></h2>
         </div>
+    </div>
+    <div class="vidbg-container" style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%; background-image: none;">
+        <video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: none; visibility: visible; opacity: 1; width: 1270px; height: auto;">
+            <source src="/public_html/include/media/mp4_video.mp4" type="video/mp4">
+            <source src="/public_html/include/media/webm_video.webm" type="video/webm">
+
+        </video>
     </div>
 </section>
 <!--========== END PROMO BLOCK ==========-->

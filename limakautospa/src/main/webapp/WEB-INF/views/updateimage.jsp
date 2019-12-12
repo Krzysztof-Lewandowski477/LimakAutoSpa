@@ -13,20 +13,18 @@
         <div class="label" for="file">Image</div>
         <div class="file has-name">
             <label class="file-label">
-<%--                <input type="hidden" name="id" value="${image.id}"/>--%>
-                <input type="text" name="name">
-                <input class="file-input" type="file" name="file"  accept="image/*">
-                <span class="file-cta">
-                                      <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                      </span>
-                                      <span class="file-label">
-                                       Edit Image
-                                      </span>
-                                    </span>
+                <input type="hidden" name="id" value="${image.id}"/>
+                <input type="text" name="name"> <form:errors path="name"></form:errors>
+                <input  type="file" name="file"  accept="image/*">
+
+                  </span>
+                  <span class="file-label">
+                   Edit Image
+                  </span>
+                </span>
                 <span class="file-name">
 
-                                    </span>
+                </span>
             </label>
         </div>
 
