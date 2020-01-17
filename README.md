@@ -1,52 +1,34 @@
-<img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400">
 
 
-# JEE - Spring Hibernate
-> Kilka ważnych informacji
+# Limak Auto Spa project.
+>Limak Auto Spa web application created for the owner of the company and tailored to his needs.
 
-Przed przystąpieniem do rozwiązywania zadań przeczytaj poniższe wskazówki
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Status](#status)
 
-## Jak zacząć?
+## General info
 
-1. Stwórz [*fork*](https://guides.github.com/activities/forking/) repozytorium z zadaniami.
-2. Sklonuj repozytorium na swój komputer. Użyj do tego komendy `git clone adres_repozytorium`
-Adres repozytorium możesz znaleźć na stronie repozytorium po naciśnięciu w guzik "Clone or download".
-3. Rozwiąż zadania i skomituj zmiany do swojego repozytorium. Użyj do tego komend `git add nazwa_pliku`.
-Jeżeli chcesz dodać wszystkie zmienione pliki użyj `git add .` 
-Pamiętaj że kropka na końcu jest ważna!
-Następnie skommituj zmiany komendą `git commit -m "nazwa_commita"`
-4. Wypchnij zmiany do swojego repozytorium na GitHubie.  Użyj do tego komendy `git push origin master`
-5. Stwórz [*pull request*](https://help.github.com/articles/creating-a-pull-request) do oryginalnego repozytorium, gdy skończysz wszystkie zadania.
+Limak Auto Spa project is a web application which aims to show the clients of this company work on cars and constructed in such a way that the owner of the company can independently add photos of the cars taken.
 
-## Plan tego repozytorium
+## Technologies
 
-* a_Zadania
+* Java
+* SPRING
+* HIBERNATE
+* HTML
+* CSS
+* BOOTSTRAP
+* BULMA
+* MySQL
 
-    * Tutaj znajdziesz zadania do zajęć. Kilka na wstępie jest dla wykładowcy, aby pokazał Ci jak rozwiązywać kolejne. Rozwiązuj je na zajęciach. Mentor nie będzie ich sprawdzał, ale w razie wątpliwości przy egzaminie może na nie spojrzeć. Wrzucaj je systematycznie na Githuba.
+## Setup
+Aplication can be started using Intelij Idea or heroku.com
 
+The first version made by me with not implemented java is available at www.limakautospa.pl
 
-* b_Zadania_domowe
-    * Te zadania wykonaj samodzielnie w domu. Pamiętaj, aby dokładnie czytać treść zadań. Zadania dodatkowe są dla chętnych i ambitnych. Ty też jesteś, prawda? :) Zadania dodatkowe zrób w miarę możliwości, możesz je dosłać w każdej chwili.
-
-
-* c_Snippety
-    * Tutaj znajdziesz kawałki kodu rozwiązujące różne problemy, mogą Ci się przydać w trakcie rozwiązywania zadań.
-
-    
-Poszczególne zadania rozwiązuj w odpowiednich plikach.
-
-**Repozytorium z ćwiczeniami zostanie usunięte 2 tygodnie po zakończeniu kursu. Spowoduje to też usunięcie wszystkich forków, które są zrobione z tego repozytorium.**
-
-
-## Uwagi do zadań
-
-Jeśli masz uwagi do zadań, możesz je zgłaszać mailowo na adres: 
- <a href="mailto:<a href='mailto:arkadiusz.jozwiak@coderslab.pl'>arkadiusz.jozwiak@coderslab.pl</a>">arkadiusz.jozwiak@coderslab.pl</a>,
- w temacie wpisując: **Uwagi do zadań**.
- 
-Aby można było szybko zlokalizować problem i się do niego odnieść, umieść w mailu następujące informacje:
-
-- link do strony z zadaniem
-- numer zadania (ewentualnie podpunkt)
-- opis problemu
+## Status
+In progress, working on virtual shop.
 
