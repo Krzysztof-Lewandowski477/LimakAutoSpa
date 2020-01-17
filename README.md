@@ -16,6 +16,7 @@ Limak Auto Spa project is a web application which aims to show the clients of th
 ## Technologies
 
 * Java
+* JavaScript
 * SPRING
 * HIBERNATE
 * HTML
