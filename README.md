@@ -25,7 +25,7 @@ Limak Auto Spa project is a web application which aims to show the clients of th
 * MySQL
 
 ## Setup
-Aplication can be started using Intelij Idea or www.limakautospa.herokuapp.com
+Aplication can be started using Intelij Idea or heroku.com
 
 The first version made by me with not implemented java is available at www.limakautospa.pl
 
