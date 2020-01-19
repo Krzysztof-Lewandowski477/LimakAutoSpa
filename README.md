@@ -1,6 +1,6 @@
 
 
-# Limak Auto Spa project.
+# Limak Auto Spa project
 >Limak Auto Spa web application created for the owner of the company and tailored to his needs.
 
 ## Table of contents
